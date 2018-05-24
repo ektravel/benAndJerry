@@ -26,7 +26,7 @@ var icecreams = [
     price: 4, 
     awesomeness: 6
     },
-    {name:"cherry-grcia", 
+    {name:"cherry-garcia", 
     price: 5, 
     awesomeness: 9
     },
