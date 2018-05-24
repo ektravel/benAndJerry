@@ -14,38 +14,42 @@ app.set("view engine", "handlebars");
 
 //Data
 var icecreams = [
-    {name:"chunky monkey", 
+    {name:"chunky-monkey", 
     price: 5, 
     awesomeness: 7
     },
-    {name:"caramel almond brittle",
+    {name:"caramel-almond-brittle",
     price: 6, 
     awesomeness: 8
     },
-    {name:"peanut butter half baked", 
+    {name:"peanut-butter-half-baked", 
     price: 4, 
     awesomeness: 6
     },
-    {name:"cherry garcia", 
+    {name:"cherry-grcia", 
     price: 5, 
     awesomeness: 9
     },
-    {name:"chocolate fudge brownie", 
+    {name:"chocolate-fudge-brownie", 
     price: 4, 
     awesomeness: 6
     }
 ];
 
 //Routes
-//   * Using handlebars and express, create a route called `/icecream/:name`. When the route is hit, it will display the name, price and awesomeness for that specific ice cream.
-app.get("/icecream/:name", function(req, res){
-    
-})
+
+app.get("/icecreams/:name", function(req, res){
+    for(i=0; i < icecreams.length; i++){
+        if (icecreams[i].name === req.params.name){
+            return res.render("icecream", icecreams[i]);
+        }
+    }
+});
 
 //   * Create an `/icecreams` route. It will loop over all the ice creams and display them all to the user.
 app.get("/icecreams", function(req, res){
-    
-})
+    res.render("ics",{ics: icecreams});
+});
 
 //Start the server so that it could listen to the client request
 app.listen(PORT, function(){
